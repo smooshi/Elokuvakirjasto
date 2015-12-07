@@ -3,9 +3,10 @@
 <input type="button" ng-click="searchMovie()" value="Hae" />
 
 <div ng-show="searched">
+Löydettiin: {{num}}
+<p />
 <ul>
 <li ng-repeat="movie in omdbMovies">
-Löydettiin: {{num}}
 <a ng-href="#/movies/{{movie}}" >{{movie}}</a>
 </li>
 </ul>
