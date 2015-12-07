@@ -41,8 +41,9 @@ MovieApp.controller('SearchController', function($scope, APIService) {
 	$scope.searchMovie = function() {
 		$scope.searched = true;
 		APIService.findMovie($scope.search).success(function(movies){
-			$scope.omdbMovies = movies.Title;
+			$scope.omdbMovies = movies;
 			$scope.num = $scope.omdbMovies.length;
+			console.log(movies);
 		});
 	}
 });
