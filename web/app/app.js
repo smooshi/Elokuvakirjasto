@@ -30,11 +30,15 @@ MovieApp.controller('HomeController', function($scope, FirebaseService, $locatio
 		FirebaseService.addMovies($scope.movie);
 		
 		//Redirect:
-		$location.path('/movies.html');
+		$location.path('/movies');
 	}
 	
 	$scope.listMovies = function() {
 	}
+	
+	$scope.$apply(function() {
+		$location.path("/movies");
+	});
 });
 
 MovieApp.controller('MoviesController', function($scope, FirebaseService) {
