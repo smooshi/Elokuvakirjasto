@@ -1,0 +1,11 @@
+<h2>Haku: </h2>
+<input type="text" ng-model="search" name="haku" required><br />
+<input type="button" ng-click="searchMovie()" value="Hae" />
+
+<div ng-show="searched">
+<ul>
+<li ng-repeat="movie in omdbMovies">
+<a ng-href="#/movies/{{movie.id}}" >{{movie.name}} {{movie.director}} {{movie.year}} {{movie.description}}</a>
+</li>
+</ul>
+</div>

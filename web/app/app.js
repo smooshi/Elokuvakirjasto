@@ -12,6 +12,10 @@ MovieApp.config(function($routeProvider){
               controller: 'MoviesController',
               templateUrl: 'templates/movies.html'
             })
+			.when('/search', {
+              controller: 'SearchController',
+              templateUrl: 'templates/search.html'
+            })
 			.when('/movies/:id', {
               controller: 'MoviesController',
               templateUrl: 'templates/movie.html'
@@ -27,6 +31,17 @@ MovieApp.config(function($routeProvider){
             .otherwise({
               redirectTo: '/'
             });
+});
+
+MovieApp.config(['$httpProvider', function($httpProvider) {
+  delete $httpProvider.defaults.headers.common["X-Requested-With"]
+}]);
+
+MovieApp.controller('SearchController', function($scope, APIService) {
+	APIService.findMovie($scope.search).success(function(movies){
+		$scope.omdbMovies = movies;
+		$scope.searched = true;
+	});
 });
 
 MovieApp.controller('HomeController', function($scope, FirebaseService, $location) {
@@ -99,12 +114,13 @@ MovieApp.service('FirebaseService', function($firebaseArray){
 	}
 	
 	this.saveMovie = function(movie) {
+		/*
 		var mov = getMovie(movie.id);
 			mov.name = movie.name;
 			mov.director = movie.director;
 			mov.year = movie.year;
 			mov.description = movie.description;
-		/*
+		*/
 		movies.forEach(function(mov){
            if (movie.id == mov.id) {
 			   mov.name = movie.name;
@@ -113,7 +129,13 @@ MovieApp.service('FirebaseService', function($firebaseArray){
 			   mov.description = movie.description;
 			   movies.$save(mov);
 		   }
-        });*/
+        });
 
 	}
+});
+
+MovieApp.service('APIService', function($http){
+  this.findMovie = function(name){
+    return $http.get('http://www.omdbapi.com', { params: { s: name } });
+  }
 });
