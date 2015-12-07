@@ -1,12 +1,12 @@
 <h2>Haku: </h2>
 <input type="text" ng-model="search" name="haku"><br />
-<input type="button" ng-click="findMovie()" value="Hae" />
+<input type="button" ng-click="searchMovie()" value="Hae" />
 
 <div ng-show="searched">
 <ul>
 <li ng-repeat="movie in omdbMovies">
 Löydettiin: {{num}}
-<a ng-href="#/movies/{{movie.id}}" >{{movie}}</a>
+<a ng-href="#/movies/{{movie}}" >{{movie}}</a>
 </li>
 </ul>
 </div>
