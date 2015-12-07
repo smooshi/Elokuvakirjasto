@@ -54,6 +54,7 @@ MovieApp.controller('MoviesController', function($scope, FirebaseService, $route
 	
 	$scope.removeMovie = function() {
 		console.log("Remove Movie!");
+		FirebaseService.removeMovie(currMovie);
 	}
 	
 	$scope.fillForm = function() {
@@ -92,14 +93,16 @@ MovieApp.service('FirebaseService', function($firebaseArray){
 	}
 	
 	this.removeMovie = function(movie) {
-		todos.$remove(movie);
+		movies.$remove(movie);
 	}
 	
 	this.saveMovie = function(movie) {
-		movies.forEach(function(mov){
+		/*movies.forEach(function(mov){
            if (movie.id == mov.id) {
 			   movies.$save(mov);
 		   }
         });
+		*/
+		movies.$save(movie);
 	}
 });
