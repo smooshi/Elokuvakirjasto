@@ -37,6 +37,21 @@ MovieApp.controller('HomeController', function($scope, FirebaseService, $locatio
 		//Redirect:
 		$location.path('/movies');
 	}
+});
+
+MovieApp.controller('MoviesController', function($scope, FirebaseService, $routeParams) {
+	$scope.movies = FirebaseService.getMovies();
+	console.log($routeParams.id);
+	
+	if($routeParams.id != null){
+		$scope.movies.forEach(function(movie){
+           if (movie.id == $routeParams.id) {
+			   $scope.currMovie = movie;
+		   }
+        });
+	  }else{
+		$scope.currMovie = null;
+	}
 	
 	$scope.removeMovie = function() {
 		console.log("Remove Movie!");
@@ -54,21 +69,6 @@ MovieApp.controller('HomeController', function($scope, FirebaseService, $locatio
 	$scope.editMovie = function () {
 		FirebaseService.saveMovie($scope.Emovie)
 		$scope.showTheForm = false;
-	}
-});
-
-MovieApp.controller('MoviesController', function($scope, FirebaseService, $routeParams) {
-	$scope.movies = FirebaseService.getMovies();
-	console.log($routeParams.id);
-	
-	if($routeParams.id != null){
-		$scope.movies.forEach(function(movie){
-           if (movie.id == $routeParams.id) {
-			   $scope.currMovie = movie;
-		   }
-        });
-	  }else{
-		$scope.currMovie = null;
 	}
 });
 
