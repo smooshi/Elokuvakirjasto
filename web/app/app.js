@@ -40,6 +40,7 @@ MovieApp.config(['$httpProvider', function($httpProvider) {
 MovieApp.controller('SearchController', function($scope, APIService) {
 	APIService.findMovie($scope.search).success(function(movies){
 		$scope.omdbMovies = movies;
+		$scope.num = omdbMovies.length;
 		$scope.searched = true;
 	});
 });
@@ -136,6 +137,6 @@ MovieApp.service('FirebaseService', function($firebaseArray){
 
 MovieApp.service('APIService', function($http){
   this.findMovie = function(name){
-    return $http.get('http://www.omdbapi.com', { params: { s: name } });
+    return $http.get('https://www.omdbapi.com/', { params: { s: name } });
   }
 });
