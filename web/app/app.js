@@ -42,7 +42,7 @@ MovieApp.controller('SearchController', function($scope, APIService) {
 		$scope.searched = true;
 		APIService.findMovie($scope.search).success(function(movies){
 			$scope.omdbMovies = movies;
-			$scope.num = omdbMovies.length;
+			$scope.num = $scope.omdbMovies.length;
 		});
 	}
 });
