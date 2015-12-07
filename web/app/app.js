@@ -60,10 +60,10 @@ MovieApp.controller('MoviesController', function($scope, FirebaseService, $route
 	$scope.showForm = function() {
 		showTheForm = true;
 		
-		$scope.Emovie.name = currMovie.name;
-		$scope.Emovie.director = currMovie.director;
-		$scope.Emovie.year = currMovie.year;
-		$scope.Emovie.description = currMovie.description;
+		$scope.Emovie.name = $scope.currMovie.name;
+		$scope.Emovie.director = $scope.currMovie.director;
+		$scope.Emovie.year = $scope.currMovie.year;
+		$scope.Emovie.description =  $scope.currMovie.description;
 	}
 	
 	$scope.editMovie = function () {
