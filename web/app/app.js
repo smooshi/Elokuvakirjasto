@@ -29,7 +29,7 @@ MovieApp.controller('HomeController', function($scope, FirebaseService, $locatio
 	
 	$scope.movies = FirebaseService.getMovies();
 	
-	if($scope.movies[$routeParams.id]){
+	if($routeParams.id != Null){
 		$scope.movies.forEach(function(movie){
            if (movie.id == $routeParams.id) {
 			   $scope.currMovie = movie;
