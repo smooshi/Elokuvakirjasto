@@ -49,7 +49,6 @@ MovieApp.controller('SearchController', function($scope, APIService) {
 				$scope.obdbMovies.push(movie.Title);
 			});
 			
-			$scope.omdbMovies = movies;
 			$scope.num = $scope.omdbMovies.length;
 			console.log(movies);
 		});
