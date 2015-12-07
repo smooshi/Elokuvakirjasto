@@ -41,7 +41,6 @@ MovieApp.controller('HomeController', function($scope, FirebaseService, $locatio
 
 MovieApp.controller('MoviesController', function($scope, FirebaseService, $routeParams) {
 	$scope.movies = FirebaseService.getMovies();
-	console.log($scope.Emovie);
 	
 	if($routeParams.id != null){
 		$scope.movies.forEach(function(movie){
@@ -60,6 +59,7 @@ MovieApp.controller('MoviesController', function($scope, FirebaseService, $route
 	$scope.showForm = function() {
 		showTheForm = true;
 		$scope.Emovie = {};
+		console.log($scope.Emovie);
 		
 		$scope.Emovie.name = $scope.currMovie.name;
 		$scope.Emovie.director = $scope.currMovie.director;
