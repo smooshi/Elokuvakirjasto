@@ -32,9 +32,6 @@ ID: {{currMovie.id}} <br />
 			<div ng-show="form.$submitted || form.kuvaus.$touched">
 				<div ng-show="form.kuvaus.$error.required">Pakollinen kenttä!</div>
 			</div>	
-			
-			ID: <input type="text" ng-model="Emovie.id" name="id" required ng-trim="false" ng-change="id = id.split(' ').join('')"/><br />
-			<div ng-show="form.$submitted || form.id.$touched">
-				<div ng-show="form.id.$error.required">Pakollinen kenttä!</div>
-			</div>	
+			<p />
+			<input type="button" ng-click="editMovie()" value="Tallenna" />
 </form>

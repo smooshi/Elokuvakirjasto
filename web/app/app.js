@@ -68,6 +68,8 @@ MovieApp.controller('MoviesController', function($scope, FirebaseService, $route
 	$scope.editMovie = function () {
 		FirebaseService.saveMovie($scope.Emovie)
 		$scope.showTheForm = false;
+		
+		$scope.currMovie = $scope.Emovie;
 	}
 });
 
