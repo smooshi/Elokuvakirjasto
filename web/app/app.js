@@ -16,6 +16,10 @@ MovieApp.config(function($routeProvider){
               controller: 'MoviesController',
               templateUrl: 'templates/movie.html'
             })
+			.when('/movies/:id/edit', {
+              controller: 'MoviesController',
+              templateUrl: 'templates/movie.html'
+            })
 			.when('/movies/new', {
               controller: 'HomeController',
               templateUrl: 'templates/home.html'
@@ -60,12 +64,8 @@ MovieApp.controller('MoviesController', function($scope, FirebaseService, $route
 	}
 	
 	$scope.fillForm = function() {
-		$scope.Emovie = {name:'', director:'', year:'', description:'', id:$scope.currMovie.id};
-		
-		$scope.Emovie.name = $scope.currMovie.name;
-		$scope.Emovie.director = $scope.currMovie.director;
-		$scope.Emovie.year = $scope.currMovie.year;
-		$scope.Emovie.description =  $scope.currMovie.description;
+		$scope.showTheForm = true;
+		$scope.Emovie = {name:$scope.currMovie.name, director:$scope.currMovie.director, year:$scope.currMovie.year, description:$scope.currMovie.description, id:$scope.currMovie.id};
 	}
 	
 	$scope.editMovie = function () {
