@@ -17,7 +17,7 @@ MovieApp.config(function($routeProvider){
             });
 });
 
-MovieApp.controller('HomeController', function($scope, $location) {
+MovieApp.controller('HomeController', function($scope, FirebaseService, $location) {
 	
 	$scope.movies = FirebaseService.getMovies();
 	
