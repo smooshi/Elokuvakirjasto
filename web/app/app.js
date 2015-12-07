@@ -46,6 +46,7 @@ MovieApp.controller('MoviesController', function($scope, FirebaseService, $route
 		$scope.movies.forEach(function(movie){
            if (movie.id == $routeParams.id) {
 			   $scope.currMovie = movie;
+			   fillForm();
 		   }
         });
 	  }else{
@@ -56,7 +57,7 @@ MovieApp.controller('MoviesController', function($scope, FirebaseService, $route
 		console.log("Remove Movie!");
 	}
 	
-	$scope.showForm = function() {
+	$scope.fillForm = function() {
 		$scope.Emovie = {name:'', director:'', year:'', description:'', id:$scope.currMovie.id};
 		
 		$scope.Emovie.name = $scope.currMovie.name;
