@@ -29,8 +29,15 @@ MovieApp.controller('HomeController', function($scope, FirebaseService, $locatio
 	
 	$scope.movies = FirebaseService.getMovies();
 	
+	  if(movies[$routeParams.id.toLowerCase()]){
+		$scope.currMovie = movies[$routeParams.id.toLowerCase()];
+	  }else{
+		$scope.currMovie = null;
+	  }
+	
 	$scope.addMovie = function() {
 		console.log("Add Movie!");
+		$scope.movie.id = $scope.movie.id.split(' ').join('')
 		FirebaseService.addMovies($scope.movie);
 		
 		//Redirect:
