@@ -44,14 +44,14 @@ MovieApp.controller('HomeController', function($scope, FirebaseService, $locatio
 	
 	$scope.showForm = function() {
 		
-		$scope.movie.name = currMovie.name;
-		$scope.movie.director = currMovie.director;
-		$scope.movie.year = currMovie.year;
-		$scope.movie.description = currMovie.description;
+		$scope.Emovie.name = currMovie.name;
+		$scope.Emovie.director = currMovie.director;
+		$scope.Emovie.year = currMovie.year;
+		$scope.Emovie.description = currMovie.description;
 	}
 	
 	$scope.editMovie = function () {
-		FirebaseService.saveMovie($scope.movie)
+		FirebaseService.saveMovie($scope.Emovie)
 		$scope.showTheForm = false;
 	}
 });
