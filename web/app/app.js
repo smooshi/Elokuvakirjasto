@@ -26,14 +26,14 @@ MovieApp.controller('HomeController', function($scope, FirebaseService, $locatio
 		FirebaseService.addMovies($scope.movie);
 		
 		//Redirect:
-		$location.path('/movie.html');
+		$location.path('/movies.html');
 	}
 	
 	$scope.listMovies = function() {
 	}
 });
 
-MovieApp.controller('MoviesController', function($scope) {
+MovieApp.controller('MoviesController', function($scope, FirebaseService) {
     $scope.movies = FirebaseService.getMovies();
 });
 
