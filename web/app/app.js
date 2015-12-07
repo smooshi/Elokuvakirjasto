@@ -39,7 +39,7 @@ MovieApp.controller('HomeController', function($scope, FirebaseService, $locatio
 	}
 });
 
-MovieApp.controller('MoviesController', function($scope, FirebaseService, $routeParams) {
+MovieApp.controller('MoviesController', function($scope, FirebaseService, $routeParams, $location) {
 	$scope.movies = FirebaseService.getMovies();
 	
 	if($routeParams.id != null){
@@ -55,6 +55,8 @@ MovieApp.controller('MoviesController', function($scope, FirebaseService, $route
 	$scope.removeMovie = function() {
 		console.log("Remove Movie!");
 		FirebaseService.removeMovie($scope.currMovie);
+		
+		$location.path('/movies');
 	}
 	
 	$scope.fillForm = function() {
