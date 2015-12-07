@@ -12,6 +12,10 @@ MovieApp.config(function($routeProvider){
               controller: 'MoviesController',
               templateUrl: 'templates/movies.html'
             })
+			.when('/movies/:id', {
+              controller: 'MoviesController',
+              templateUrl: 'templates/movie.html'
+            })
 			.when('/movies/new', {
               controller: 'HomeController',
               templateUrl: 'templates/home.html'
@@ -32,13 +36,14 @@ MovieApp.controller('HomeController', function($scope, FirebaseService, $locatio
 		//Redirect:
 		$location.path('/movies');
 	}
-	
-	$scope.listMovies = function() {
-	}
-	
+
 	$scope.$apply(function() {
 		$location.path("/movies");
 	});
+	
+	$scope.removeMovie() {
+		console.log("Remove Movie!");
+	}
 });
 
 MovieApp.controller('MoviesController', function($scope, FirebaseService) {
@@ -54,7 +59,20 @@ MovieApp.service('FirebaseService', function($firebaseArray){
 	}
 	
 	this.addMovies = function(movie){
-	  console.log("Firebase add");
 	  movies.$add(movie);
+	}
+	
+	this.getMovie = function(key, done){
+		movies.$loaded(function(){
+			done(movies.$getRecord(key));
+		});
+	}
+	
+	this.removeMovie = function(movie) {
+		todos.$remove(movie);
+	}
+	
+	this.saveMovie = function(movie) {
+		movies.$save(movie);
 	}
 });
