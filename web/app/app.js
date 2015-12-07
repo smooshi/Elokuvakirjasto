@@ -31,7 +31,7 @@ MovieApp.controller('HomeController', function($scope, FirebaseService, $locatio
 	
 	$scope.addMovie = function() {
 		console.log("Add Movie!");
-		$scope.movie.id = $scope.movie.id.split(' ').join('')
+		$scope.movie.id = $scope.movie.id.split(' ').join('');
 		FirebaseService.addMovies($scope.movie);
 		
 		//Redirect:
@@ -40,6 +40,10 @@ MovieApp.controller('HomeController', function($scope, FirebaseService, $locatio
 	
 	$scope.removeMovie = function() {
 		console.log("Remove Movie!");
+	}
+	
+	$scope.processForm = function() {
+		$scope.showForm = false;
 	}
 });
 

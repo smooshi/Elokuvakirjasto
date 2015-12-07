@@ -5,3 +5,34 @@ Blaa: {{currMovie.description}} <br/ >
 ID: {{currMovie.id}} <br />
 
 <input type="button" ng-click="removeMovie()" value="Poista" />
+<p />
+
+<input type="button" ng-click="showForm = !showForm" value="Muokkaa" />
+
+<form ng-show="showForm" ng-submit="processForm()" name="form" class="css-form" novalidate> 
+			<label>Nimi:</label>
+			<input type="text" ng-model="movie.name" name="nimi" required>{{currMovie.name}}</input><br />
+			<div ng-show="form.$submitted || form.nimi.$touched">
+				<div ng-show="form.nimi.$error.required">Pakollinen kenttä!</div>
+			</div>
+			
+			Ohjaaja: <input type="text" ng-model="movie.director" name="ohjaaja" required/><br />
+			<div ng-show="form.$submitted || form.ohjaaja.$touched">
+				<div ng-show="form.ohjaaja.$error.required">Pakollinen kenttä!</div>
+			</div>	
+			
+			Julkaisuvuosi: <input type="number" ng-model="movie.year" name="vuosi" required/><br />
+			<div ng-show="form.$submitted || form.vuosi.$touched">
+				<div ng-show="form.vuosi.$error.required">Pakollinen kenttä!</div>
+			</div>	
+			
+			Kuvaus: <input type="text" ng-model="movie.description" name="kuvaus" required/><br />
+			<div ng-show="form.$submitted || form.kuvaus.$touched">
+				<div ng-show="form.kuvaus.$error.required">Pakollinen kenttä!</div>
+			</div>	
+			
+			ID: <input type="text" ng-model="movie.id" name="id" required ng-trim="false" ng-change="id = id.split(' ').join('')"/><br />
+			<div ng-show="form.$submitted || form.id.$touched">
+				<div ng-show="form.id.$error.required">Pakollinen kenttä!</div>
+			</div>	
+</form>
