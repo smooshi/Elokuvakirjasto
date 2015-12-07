@@ -25,7 +25,7 @@ MovieApp.config(function($routeProvider){
             });
 });
 
-MovieApp.controller('HomeController', function($scope, FirebaseService, $location, $routeParams) {
+MovieApp.controller('HomeController', function($scope, FirebaseService, $location) {
 	
 	$scope.movies = FirebaseService.getMovies();
 	
@@ -43,7 +43,8 @@ MovieApp.controller('HomeController', function($scope, FirebaseService, $locatio
 	}
 });
 
-MovieApp.controller('MoviesController', function($scope, FirebaseService) {
+MovieApp.controller('MoviesController', function($scope, FirebaseService, $routeParams) {
+	$scope.movies = FirebaseService.getMovies();
 	console.log($routeParams.id);
 	
 	if($routeParams.id != null){
@@ -55,8 +56,6 @@ MovieApp.controller('MoviesController', function($scope, FirebaseService) {
 	  }else{
 		$scope.currMovie = null;
 	}
-	
-    $scope.movies = FirebaseService.getMovies();
 });
 
 MovieApp.service('FirebaseService', function($firebaseArray){
