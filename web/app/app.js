@@ -47,6 +47,8 @@ MovieApp.controller('SearchController', function($scope, APIService) {
 			
 			movies.Search.forEach(function(movie){
 				$scope.obdbMovies.push(movie.Title);
+				console.log(movie);
+				console.log(movie.title);
 			});
 			
 			$scope.num = $scope.omdbMovies.length;
