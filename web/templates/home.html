@@ -23,6 +23,11 @@
 				<div ng-show="form.kuvaus.$error.required">Pakollinen kenttä!</div>
 			</div>	
 			
+			ID: <input type="text" ng-model="movie.id" name="id" required ng-trim="false" ng-change="id = id.split(' ').join('')"/><br />
+			<div ng-show="form.$submitted || form.id.$touched">
+				<div ng-show="form.id.$error.required">Pakollinen kenttä!</div>
+			</div>	
+			
 			<input type="button" ng-click="addMovie()" value="Lisää" ng-disabled="form.$invalid" />
 			
 		</form>
