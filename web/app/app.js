@@ -38,11 +38,13 @@ MovieApp.config(['$httpProvider', function($httpProvider) {
 }]);
 
 MovieApp.controller('SearchController', function($scope, APIService) {
-	APIService.findMovie($scope.search).success(function(movies){
-		$scope.omdbMovies = movies;
-		$scope.num = omdbMovies.length;
+	$scope.searchMovie = function() {
 		$scope.searched = true;
-	});
+		APIService.findMovie($scope.search).success(function(movies){
+			$scope.omdbMovies = movies;
+			$scope.num = omdbMovies.length;
+		});
+	}
 });
 
 MovieApp.controller('HomeController', function($scope, FirebaseService, $location) {
