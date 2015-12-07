@@ -4,11 +4,12 @@ var MovieApp = angular.module('MovieApp', ['firebase', 'validation.match']);
 
 MovieApp.controller('MovieController', function($scope, FirebaseService) {
 	console.log("Controller called");
-	$scope.addMovie = function() {
+	
+	this.addMovie = function() {
 		console.log("Add Movie!");
 	}
 	
-	$scope.listMovies = function() {
+	this.listMovies = function() {
 		
 	}
 	
