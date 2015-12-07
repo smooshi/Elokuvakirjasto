@@ -99,6 +99,12 @@ MovieApp.service('FirebaseService', function($firebaseArray){
 	}
 	
 	this.saveMovie = function(movie) {
+		var mov = getMovie(movie.id);
+			mov.name = movie.name;
+			mov.director = movie.director;
+			mov.year = movie.year;
+			mov.description = movie.description;
+		/*
 		movies.forEach(function(mov){
            if (movie.id == mov.id) {
 			   mov.name = movie.name;
@@ -107,7 +113,7 @@ MovieApp.service('FirebaseService', function($firebaseArray){
 			   mov.description = movie.description;
 			   movies.$save(mov);
 		   }
-        });
+        });*/
 
 	}
 });
