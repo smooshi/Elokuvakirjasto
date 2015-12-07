@@ -14,8 +14,9 @@
 	
 	<h2>Lisää elokuva:</h2>
 	
-	<form name="form" class="css-form" novalidate>
-	Nimi: <input type="text" ng-model="movie.name" name="nimi" required /><br />
+	<form name="form">
+	<label>Nimi:</label>
+	<input type="text" ng-model="movie.name" name="nimi" required /><br />
 	<div ng-show="form.$submitted || form.nimi.$touched">
 		<div ng-show="form.nimi.$error.required">Pakollinen kenttä!</div>
 	</div>
