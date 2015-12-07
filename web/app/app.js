@@ -1,14 +1,14 @@
 // Toteuta moduulisi tänne
 
-var MovieApp = angular.module('MovieApp', ['firebase']);
+var MovieApp = angular.module('MovieApp', ['firebase', 'validation.match']);
 
 MovieApp.controller('MovieController', function($scope, FirebaseService) {
 	console.log("Controller called");
-	this.addMovie = function() {
+	$scope.addMovie = function() {
 		console.log("Add Movie!");
 	}
 	
-	this.listMovies = function() {
+	$scope.listMovies = function() {
 		
 	}
 	
