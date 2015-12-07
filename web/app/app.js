@@ -43,16 +43,16 @@ MovieApp.controller('HomeController', function($scope, FirebaseService, $locatio
 	}
 	
 	$scope.showForm = function() {
-		$scope.showForm = true;
 		
-		$scope.nimi = currMovie.name;
-		$scope.ohjaaja = currMovie.director;
-		$scope.vuosi = currMovie.year;
-		$scope.kuvaus = currMovie.description;
+		$scope.movie.name = currMovie.name;
+		$scope.movie.director = currMovie.director;
+		$scope.movie.year = currMovie.year;
+		$scope.movie.description = currMovie.description;
 	}
 	
 	$scope.editMovie = function () {
 		FirebaseService.saveMovie($scope.movie)
+		$scope.showTheForm = false;
 	}
 });
 

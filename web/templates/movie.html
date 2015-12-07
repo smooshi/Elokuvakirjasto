@@ -7,9 +7,9 @@ ID: {{currMovie.id}} <br />
 <input type="button" ng-click="removeMovie()" value="Poista" />
 <p />
 
-<input type="button" ng-click="showForm()" value="Muokkaa" />
+<input type="button" ng-click="showTheForm = !showTheForm" value="Muokkaa" />
 
-<form ng-show="showForm" ng-submit="processForm()" name="form" class="css-form" novalidate> 
+<form ng-show="showTheForm" name="form" class="css-form" novalidate> 
 			<label>Nimi:</label>
 			<input type="text" ng-model="movie.name" name="nimi" required><br />
 			<div ng-show="form.$submitted || form.nimi.$touched">
