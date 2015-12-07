@@ -38,15 +38,18 @@ MovieApp.config(['$httpProvider', function($httpProvider) {
 }]);
 
 MovieApp.controller('SearchController', function($scope, APIService) {
+	
 	$scope.searchMovie = function() {
 		$scope.searched = true;
 		APIService.findMovie($scope.search).success(function(movies){
-			movies.forEach(function(movie){
+			
+			movies.Search.forEach(function(movie){
 				$scope.obdbMovies.add(movie.Title);
 			});
-
+			
+			$scope.omdbMovies = movies;
 			$scope.num = $scope.omdbMovies.length;
-			console.log(obdbMovies);
+			console.log(movies);
 		});
 	}
 });
