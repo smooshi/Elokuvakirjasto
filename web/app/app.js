@@ -5,7 +5,7 @@ var MovieApp = angular.module('MovieApp', ['firebase']);
 MovieApp.controller('MovieController', function($scope, FirebaseService) {
 	console.log("Controller called");
 	this.addMovie = function() {
-		
+		console.log("Add Movie!");
 	}
 	
 	this.listMovies = function() {
