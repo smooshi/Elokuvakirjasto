@@ -43,6 +43,7 @@ MovieApp.controller('HomeController', function($scope, FirebaseService, $locatio
 	}
 	
 	$scope.showForm = function() {
+		showTheForm = true;
 		
 		$scope.Emovie.name = currMovie.name;
 		$scope.Emovie.director = currMovie.director;
