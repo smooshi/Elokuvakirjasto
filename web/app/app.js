@@ -17,8 +17,20 @@ MovieApp.config(function($routeProvider){
             });
 });
 
-MovieApp.controller('HomeController', function($scope) {
-    $scope.message = "Koti";
+MovieApp.controller('HomeController', function($scope, $location) {
+	
+	$scope.movies = FirebaseService.getMovies();
+	
+	$scope.addMovie = function() {
+		console.log("Add Movie!");
+		FirebaseService.addMovies($scope.movie);
+		
+		//Redirect:
+		$location.path('/movie.html');
+	}
+	
+	$scope.listMovies = function() {
+	}
 });
 
 MovieApp.controller('MoviesController', function($scope) {

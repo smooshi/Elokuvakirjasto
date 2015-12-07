@@ -1,1 +1,28 @@
-<h2>{{message}}</h2>
+		<h2>Lisää elokuva:</h2>
+		
+		<form name="form" class="css-form" novalidate>
+
+			<label>Nimi:</label>
+			<input type="text" ng-model="movie.name" name="nimi" required /><br />
+			<div ng-show="form.$submitted || form.nimi.$touched">
+				<div ng-show="form.nimi.$error.required">Pakollinen kenttä!</div>
+			</div>
+			
+			Ohjaaja: <input type="text" ng-model="movie.director" name="ohjaaja" required/><br />
+			<div ng-show="form.$submitted || form.ohjaaja.$touched">
+				<div ng-show="form.ohjaaja.$error.required">Pakollinen kenttä!</div>
+			</div>	
+			
+			Julkaisuvuosi: <input type="number" ng-model="movie.year" name="vuosi" required/><br />
+			<div ng-show="form.$submitted || form.vuosi.$touched">
+				<div ng-show="form.vuosi.$error.required">Pakollinen kenttä!</div>
+			</div>	
+			
+			Kuvaus: <input type="text" ng-model="movie.description" name="kuvaus" required/><br />
+			<div ng-show="form.$submitted || form.kuvaus.$touched">
+				<div ng-show="form.kuvaus.$error.required">Pakollinen kenttä!</div>
+			</div>	
+			
+			<input type="button" ng-click="addMovie()" value="Lisää" ng-disabled="form.$invalid" />
+			
+		</form>
