@@ -36,12 +36,8 @@ MovieApp.controller('HomeController', function($scope, FirebaseService, $locatio
 		//Redirect:
 		$location.path('/movies');
 	}
-
-	$scope.$apply(function() {
-		$location.path("/movies");
-	});
 	
-	$scope.removeMovie() {
+	$scope.removeMovie = function() {
 		console.log("Remove Movie!");
 	}
 });
