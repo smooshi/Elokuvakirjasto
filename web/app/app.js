@@ -12,6 +12,10 @@ MovieApp.config(function($routeProvider){
               controller: 'MoviesController',
               templateUrl: 'templates/movies.html'
             })
+			.when('/movies/new', {
+              controller: 'HomeController',
+              templateUrl: 'templates/home.html'
+            })
             .otherwise({
               redirectTo: '/'
             });
