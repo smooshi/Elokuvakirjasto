@@ -42,8 +42,17 @@ MovieApp.controller('HomeController', function($scope, FirebaseService, $locatio
 		console.log("Remove Movie!");
 	}
 	
-	$scope.processForm = function() {
-		$scope.showForm = false;
+	$scope.showForm = function() {
+		$scope.showForm = true;
+		
+		$scope.nimi = currMovie.name;
+		$scope.ohjaaja = currMovie.director;
+		$scope.vuosi = currMovie.year;
+		$scope.kuvaus = currMovie.description;
+	}
+	
+	$scope.editMovie = function () {
+		FirebaseService.saveMovie($scope.movie)
 	}
 });
 
@@ -85,6 +94,11 @@ MovieApp.service('FirebaseService', function($firebaseArray){
 	}
 	
 	this.saveMovie = function(movie) {
-		movies.$save(movie);
+		movies.forEach(function(mov){
+           if (movie.id == mov.id) {
+			   mov = movie;
+		   }
+        });
+		movies.$save(mov);
 	}
 });
