@@ -59,6 +59,7 @@ MovieApp.controller('MoviesController', function($scope, FirebaseService, $route
 	
 	$scope.showForm = function() {
 		showTheForm = true;
+		$scope.Emovie = {};
 		
 		$scope.Emovie.name = $scope.currMovie.name;
 		$scope.Emovie.director = $scope.currMovie.director;
