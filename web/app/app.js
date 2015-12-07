@@ -1,4 +1,4 @@
-var MovieApp = angular.module('MovieApp', ['ngRoute']);
+var MovieApp = angular.module('MovieApp', ['firebase', 'validation.match', 'ngRoute']);
 
 MovieApp.config(function($routeProvider){
 	// Lisää reitit tänne
@@ -34,5 +34,19 @@ MovieApp.controller('HomeController', function($scope, $location) {
 });
 
 MovieApp.controller('MoviesController', function($scope) {
-    $scope.message = "Leffat";
+    $scope.movies = FirebaseService.getMovies();
+});
+
+MovieApp.service('FirebaseService', function($firebaseArray){
+	var firebaseRef = new Firebase('fiery-heat-9158.firebaseIO.com/movies');
+	var movies = $firebaseArray(firebaseRef);
+
+	this.getMovies = function(){
+	  return movies;
+	}
+	
+	this.addMovies = function(movie){
+	  console.log("Firebase add");
+	  movies.$add(movie);
+	}
 });
