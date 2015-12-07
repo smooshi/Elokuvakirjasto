@@ -28,6 +28,7 @@ MovieApp.config(function($routeProvider){
 MovieApp.controller('HomeController', function($scope, FirebaseService, $location, $routeParams) {
 	
 	$scope.movies = FirebaseService.getMovies();
+	console.log($routeParams.id);
 	
 	if($routeParams.id != Null){
 		$scope.movies.forEach(function(movie){
@@ -36,7 +37,7 @@ MovieApp.controller('HomeController', function($scope, FirebaseService, $locatio
 		   }
         });
 	  }else{
-		$scope.currMovie = null;
+		$scope.currMovie = Null;
 	}
 	
 	$scope.addMovie = function() {
