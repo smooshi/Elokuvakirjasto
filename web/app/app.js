@@ -98,9 +98,8 @@ MovieApp.service('FirebaseService', function($firebaseArray){
 	this.saveMovie = function(movie) {
 		movies.forEach(function(mov){
            if (movie.id == mov.id) {
-			   mov = movie;
+			   movies.$save(mov);
 		   }
         });
-		movies.$save(mov);
 	}
 });
