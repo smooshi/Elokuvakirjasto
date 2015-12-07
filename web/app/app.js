@@ -1,29 +1,26 @@
-// Toteuta moduulisi tänne
+var MovieApp = angular.module('MovieApp', ['ngRoute']);
 
-var MovieApp = angular.module('MovieApp', ['firebase', 'validation.match']);
-
-MovieApp.controller('MovieController', function($scope, FirebaseService) {
-	console.log("Controller called");
-	
-	this.addMovie = function() {
-		console.log("Add Movie!");
-	}
-	
-	this.listMovies = function() {
-		
-	}
-	
+MovieApp.config(function($routeProvider){
+	// Lisää reitit tänne
+        
+          $routeProvider
+            .when('/', {
+              controller: 'HomeController',
+              templateUrl: 'templates/home.html'
+            })
+            .when('/movies', {
+              controller: 'MoviesController',
+              templateUrl: 'templates/movies.html'
+            })
+            .otherwise({
+              redirectTo: '/'
+            });
 });
 
-MovieApp.service('FirebaseService', function($firebaseArray){
-	var firebaseRef = new Firebase('fiery-heat-9158.firebaseIO.com/movies');
-	var movies = $firebaseArray(firebaseRef);
+MovieApp.controller('HomeController', function($scope) {
+    $scope.message = "Koti";
+});
 
-	this.getMovies = function(){
-	  return movies;
-	}
-	
-	this.addMovies = function(movie){
-	  movies.$add(data);
-	}
+MovieApp.controller('MoviesController', function($scope) {
+    $scope.message = "Leffat";
 });

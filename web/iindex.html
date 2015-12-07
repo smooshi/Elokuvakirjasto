@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Elokuvakirjasto</title>
+  </head>
+  <body ng-app="MovieApp">
+	<div ng-controller="MovieController">
+		<h1>Elokuvakirjasto: </h1>
+		
+		<h2>Lista:</h2>
+		<li ng-repeat="movie in movies">{{movie.name}} {{movie.director}} {{movie.year}} {{movie.description}}</li>
+		
+		<h2>Lisää elokuva:</h2>
+		
+		<form name="form" class="css-form" novalidate>
+
+			<label>Nimi:</label>
+			<input type="text" ng-model="movie.name" name="nimi" required /><br />
+			<div ng-show="form.$submitted || form.nimi.$touched">
+				<div ng-show="form.nimi.$error.required">Pakollinen kenttä!</div>
+			</div>
+			
+			Ohjaaja: <input type="text" ng-model="movie.director" name="ohjaaja" required/><br />
+			<div ng-show="form.$submitted || form.ohjaaja.$touched">
+				<div ng-show="form.ohjaaja.$error.required">Pakollinen kenttä!</div>
+			</div>	
+			
+			Julkaisuvuosi: <input type="number" ng-model="movie.year" name="vuosi" required/><br />
+			<div ng-show="form.$submitted || form.vuosi.$touched">
+				<div ng-show="form.vuosi.$error.required">Pakollinen kenttä!</div>
+			</div>	
+			
+			Kuvaus: <input type="text" ng-model="movie.description" name="kuvaus" required/><br />
+			<div ng-show="form.$submitted || form.kuvaus.$touched">
+				<div ng-show="form.kuvaus.$error.required">Pakollinen kenttä!</div>
+			</div>	
+			
+			<input type="button" ng-click="addMovie()" value="Lisää" ng-disabled="form.$invalid" />
+			
+		</form>
+	
+	</div>
+	
+	
+    <!-- Hyödyllisiä kirjastoja -->
+
+	        <script src="bower_components/angular/angular.min.js"></script>
+        <script src="bower_components/angular-validation-match/dist/angular-input-match.min.js"></script>
+	<script src="https://cdn.firebase.com/libs/angularfire/1.1.3/angularfire.min.js"></script>
+
+	<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.0rc1/angular-route.min.js"></script>
+
+    <script src="bower_components/firebase/firebase.js"></script>
+    <!-- Linkitä omat tiedostosi tähän (huomaa, että polun juuri on web-kansio!) -->
+    <script src="app/app.js"></script>    
+  </body>
+</html>
