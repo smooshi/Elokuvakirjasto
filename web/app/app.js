@@ -46,7 +46,6 @@ MovieApp.controller('MoviesController', function($scope, FirebaseService, $route
 		$scope.movies.forEach(function(movie){
            if (movie.id == $routeParams.id) {
 			   $scope.currMovie = movie;
-			   fillForm();
 		   }
         });
 	  }else{
