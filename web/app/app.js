@@ -160,6 +160,6 @@ MovieApp.service('APIService', function($http){
     return $http.get('https://www.omdbapi.com/', { params: { s: name } });
   }
   this.findMovieY = function(year){
-    return $http.get('https://www.omdbapi.com/', { params: { s: year } });
+    return $http.get('https://www.omdbapi.com/', { params: { y: year } });
   }
 });
