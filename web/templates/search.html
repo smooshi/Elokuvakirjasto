@@ -1,6 +1,6 @@
 <h2>Haku: </h2>
-<input type="text" ng-model="searchName" name="haku"><br />
-<input type="text" ng-model="searchYear" name="haku"><br />
+Nimi: <input type="text" ng-model="searchName" name="haku"><br />
+Vuosi: <input type="text" ng-model="searchYear" name="haku"><br />
 <input type="button" ng-click="searchMovie()" value="Hae" />
 
 <div ng-show="searched">
@@ -8,7 +8,7 @@ Löydettiin: {{num}}
 <p />
 <ul>
 <li ng-repeat="movie in omdbMovies">
-<a ng-href="#/movies/{{movie}}" >{{movie.name}}(movie.year)</a>
+<a ng-href="#/movies/{{movie.imdbID}}" >{{movie.name}}({{movie.year}})</a>
 </li>
 </ul>
 </div>
