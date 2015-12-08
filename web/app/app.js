@@ -62,15 +62,6 @@ MovieApp.controller('SearchController', function($scope, APIService) {
 				$scope.num = $scope.omdbMovies.length;
 			});		
 		}
-			
-			APIService.findMovie(searchBy).success(function(movies){
-				movies.Search.forEach(function(movie){
-					var mov = {name: movie.Title, year: movie.Year, imdbID: movie.imdbID}
-					$scope.omdbMovies.push(mov);
-				});
-				
-				$scope.num = $scope.omdbMovies.length;
-			});		
 	}
 });
 
