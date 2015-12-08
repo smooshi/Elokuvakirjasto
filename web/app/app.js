@@ -41,16 +41,16 @@ MovieApp.controller('SearchController', function($scope, APIService) {
 	
 	$scope.searchMovie = function() {
 		$scope.searched = true;
-		$scope.obdbMovies = [];
+		$scope.omdbMovies = [];
 		
-		APIService.findMovie($scope.search).success(function(movies){
+		APIService.findMovie($scope.searchName).success(function(movies){
 			
 			movies.Search.forEach(function(movie){
-				$scope.obdbMovies.push(movie.Title);
+				var mov = {name: movie.Title, year: movie.Year}
+				$scope.omdbMovies.push(mov);
 			});
 			
-			$scope.num = $scope.odbMovies.length;
-			console.log(movies);
+			$scope.num = $scope.omdbMovies.length;
 		});
 	}
 });
