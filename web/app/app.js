@@ -45,7 +45,7 @@ MovieApp.controller('SearchController', function($scope, APIService) {
 		
 		if ($scope.searchName != null) {
 			var searchBy = $scope.searchName;
-		else {
+		} else {
 			var searchBy = $scope.searchYear;
 		}
 			
